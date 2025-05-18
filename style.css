@@ -1,0 +1,83 @@
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{ 
+    background-color: #2EC4B6;
+    text-align: center;
+    margin-top: 5vh;
+    font-family: 'Courier New', Courier, monospace;
+}
+.container{
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.game{
+    height: 50vmin;
+    width: 50vmin;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 5px;
+    background-color: #FF9F1C;
+}
+.box{
+    font-size: 8vmin;
+    background-color: #FFFFFF;
+    color: #FFBF69;
+    border: none;
+    border-radius: 1rem;
+}
+#resetBtn{
+    padding: 10px;
+    background-color: #FF9F1C;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 1rem;
+}
+#playAgainBtn{
+    padding: 10px;
+    background-color: #FF9F1C;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 1rem;
+}
+#restartBtn{
+    margin-top: 4vh;
+    margin-bottom: 5vh;
+    padding: 10px;
+    background-color: #FF9F1C;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 1rem;
+}
+.result{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vmin;
+    justify-content: center;
+}
+#resultText{
+    font-size: 2rem;
+    color: #FFFFFF;
+    margin-bottom: 4rem;
+}
+.scoreboard{
+    font-size: 1.5rem;
+    color: #FFFFFF;
+    margin-top: 20px;
+}
+#playerXScore{
+    color: #FFFFFF;
+}
+#playerOScore{
+    color: #FFFFFF;
+}
+.hidden{
+    display: none;
+}
