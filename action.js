@@ -1,4 +1,4 @@
-
+//    Tic Tac Toe Game elements
 let boxes = document.querySelectorAll(".box");
 let resetBtn = document.querySelector("#resetBtn");
 let playAgainBtn = document.querySelector("#playAgainBtn");
@@ -8,11 +8,13 @@ let winText = document.querySelector("#resultText");
 let X = document.querySelector("#playerXScore");
 let O = document.querySelector("#playerOScore");
 
+//  Game variables
 let turnO = true;
 let count = 0;
 let playerO = 0;
 let playerX = 0;
 
+//  Game functions
 const winPatterns=[
     [0,1,2],
     [3,4,5],
@@ -23,6 +25,9 @@ const winPatterns=[
     [0,4,8],
     [2,4,6]
 ];
+
+//  Game logic
+//    Printing X & O as playing the game
 boxes.forEach((box)=>{
     box.addEventListener("click",()=>{
         if(turnO){
@@ -43,10 +48,14 @@ boxes.forEach((box)=>{
         }
     });
 });
+
+//    Display Draw Condition
 gameDraw=()=>{
     winText.innerText = `Game was a Draw.`
     result.classList.remove("hidden");
 }
+
+//    Confirming winner
 checkWinner=()=>{
     for(let pattern of winPatterns){
         let pos1= boxes[pattern[0]].innerText;
@@ -68,28 +77,38 @@ checkWinner=()=>{
         }
     }
 }
+
+//    Display winner
 showWinner=(winner)=>{
     winText.innerText = `Congratulation, Winner is ${winner}`;
     result.classList.remove("hidden");
     disableBoxes();
 }
+
+//    Disable all the remaning box's after winning 
 disableBoxes=()=>{
     for(let box of boxes){
         box.disabled = true;
     }
 } 
+
+//    Opposit od disableBoxes()
 enableBoxes=()=>{
     for(let box of boxes){
         box.disabled = false;
         box.innerText = "";
     }
 }
+
+//    Play New Game Or Reset Game
 reStartGame=()=>{
     turnO=true;
     count=0;
     result.classList.add("hidden");
     enableBoxes();
 }
+
+//    Staring New Game
 newGame=()=>{
     reStartGame();
     playerO = 0;
@@ -97,6 +116,8 @@ newGame=()=>{
     O.innerText=`Player O: ${playerO}`;
     X.innerText=`Player X: ${playerX}`;
 }
+
+//  Add Event Listeners on buttons
 resetBtn.addEventListener("click",reStartGame);
 playAgainBtn.addEventListener("click",reStartGame);
 restartBtn.addEventListener("click",newGame);
